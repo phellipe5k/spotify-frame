@@ -58,6 +58,9 @@ class App extends Component {
     }
     if (token) {
       spotifyApi.setAccessToken(token);
+      this.setState({
+          loading: false
+        });
     }
     
   }
