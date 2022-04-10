@@ -18,7 +18,7 @@ class App extends Component {
     this.state = {
       loggedIn: token ? true : false,
       nowPlaying: { name: 'Not Checked', albumArt: '' },
-      search: '',
+      search: 'Matue',
       loading: true,
       input: '',
       quadro: {
@@ -57,6 +57,7 @@ class App extends Component {
 </svg>`
     }
     if (token) {
+      console.log(token)
       spotifyApi.setAccessToken(token);
       this.setState({
           loading: false
@@ -77,7 +78,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.getNowPlaying(' ')
+    this.getNowPlaying('Teste')
   }
   getNowPlaying(input){
     spotifyApi.search(input, ['track'])
@@ -112,7 +113,7 @@ class App extends Component {
     if (this.state.loading) {
       return (
         <SpotifyLogin>
-          <a href='https://spotify-framer-api.herokuapp.com/login' target="_blank" > Login to Spotify </a>
+          <a href='http://localhost:8888/login' target="_blank" > Login to Spotify </a>
         </SpotifyLogin>
       )
     }
